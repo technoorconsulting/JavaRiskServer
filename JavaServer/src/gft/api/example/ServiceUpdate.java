@@ -91,6 +91,7 @@ public class ServiceUpdate implements technoor.service.IServiceUpdater {
 
     public Response createResponse(Candle[] a) {
         Response response = Response.getDefaultInstance();
+        if(a==null) return response;
         Response.Builder responseBuilder;
         responseBuilder = Response.newBuilder();
         CandleProto candle = CandleProto.getDefaultInstance();

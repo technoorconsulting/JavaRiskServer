@@ -14,6 +14,8 @@ import java.rmi.RemoteException;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.io.*;
+import technoor.service.IPricingService;
+import technoor.service.gftuk.GFTUKLogin;
 
 /**
  * This class demonstrates the usage of GFT Public API.
@@ -21,43 +23,36 @@ import java.io.*;
  * @author Boris Malkin
  */
 public class ApiUsage {
-    public static final String CLSID = "$Id: ApiUsage.java 332 2009-03-17 15:54:39Z ykudryashov $";
 
+    public static final String CLSID = "$Id: ApiUsage.java 332 2009-03-17 15:54:39Z ykudryashov $";
     public final static String URL_PROP_NAME = "gft.url";
     public final static String LOGIN_PROP_NAME = "gft.login";
     public final static String PASSWORD_PROP_NAME = "gft.password";
-
     private final static long _40_MIN = 40 * 60 * 1000;
     private final static long _DAY = 24 * 60 * 60 * 1000;
     private IServiceUpdater sUpdate;
-    ApiUsage(){
-    	try{
-    		sUpdate = new gft.api.example.ServiceUpdate();
-    	}
-    	catch(Exception e)
-    	{
-    		log("exception");
-    		e.printStackTrace();
-    	}	
+
+    ApiUsage() {
+        try {
+            sUpdate = new gft.api.example.ServiceUpdate();
+        } catch (Exception e) {
+            log("exception");
+            e.printStackTrace();
+        }
     }
-
     private final MarketState marketState = new MarketState();
-
     /**
      * SessionStateListener implementation
      */
     private SessionStateListener ssListener = new SessionStateAdapter();
-
     /**
      * AccountUpdateListener implementation
      */
     private AccountUpdateListener auListener = new AccountUpdateAdapter();
-
     /**
      * OrderUpdateListener implementation
      */
     private OrderUpdateListener ouListener = new OrderUpdateAdapter();
-
     /**
      * MessageUpdateListener implementation
      */
@@ -67,7 +62,6 @@ public class ApiUsage {
             log(message + ": URL = '" + message.getBody() + "'");
         }
     };
-
     /**
      * creating QuoteUpdateListener implementation
      */
@@ -77,36 +71,35 @@ public class ApiUsage {
             marketState.updateMarketState(quotes);
         }
     };
-    
-    private Pricing initSession(Session session, String connectionString, String login, String password) throws RemoteException
-    {
-     
-            // obtain business api-s
 
-            final UserSupport userSupport = session.getUserSupport();
-            final Pricing pricing = session.getPricing();
-            final Trading trading = session.getTrading();
-            final Messaging messaging = session.getMessaging();
+    private Pricing initSession(Session session, String connectionString, String login, String password) throws RemoteException {
 
-            // register listeners to process server callbacks
+        // obtain business api-s
 
-            session.addSessionStateListener(ssListener);
-            userSupport.addAccountUpdateListener(auListener);
-            pricing.addQuoteUpdateListener(quListener);
-            trading.addOrderUpdateListener(ouListener);
-            messaging.addMessageUpdateListener(muListener);
+        final UserSupport userSupport = session.getUserSupport();
+        final Pricing pricing = session.getPricing();
+        final Trading trading = session.getTrading();
+        final Messaging messaging = session.getMessaging();
 
-            // logging in
+        // register listeners to process server callbacks
 
-            try {
-                final LoginContext context = session.start(
-                        new LoginRequest(login, password,
-                        		 TradingPermission.SB.getFlag() | TradingPermission.FX.getFlag() | TradingPermission.CFD.getFlag(),
-                                LoginRequest.MultipleLoginType.SINGLE_FORCE_LOGOUT));
-                log("logged in; login context = " + context);
-                log();
-                
-                       AccountDetails3[] accountDetails = callListAccountsDetails3(userSupport);
+        session.addSessionStateListener(ssListener);
+        userSupport.addAccountUpdateListener(auListener);
+        pricing.addQuoteUpdateListener(quListener);
+        trading.addOrderUpdateListener(ouListener);
+        messaging.addMessageUpdateListener(muListener);
+
+        // logging in
+
+        try {
+            final LoginContext context = session.start(
+                    new LoginRequest(login, password,
+                    TradingPermission.SB.getFlag() | TradingPermission.FX.getFlag() | TradingPermission.CFD.getFlag(),
+                    LoginRequest.MultipleLoginType.SINGLE_FORCE_LOGOUT));
+            log("logged in; login context = " + context);
+            log();
+
+            AccountDetails3[] accountDetails = callListAccountsDetails3(userSupport);
 
             // extracting detailed information from the AccountDetails object
 
@@ -124,44 +117,45 @@ public class ApiUsage {
 
                 log("MRPs per instrument:");
                 MRPProfile mrp = account.getMRPProfile();
-/*                for (int i = 0; i < instruments.length; i++) {
-                    log("    " + instruments[i] + " : " + mrp.getMRP(instruments[i].getInstrumentId()));
-                }
+                /*                for (int i = 0; i < instruments.length; i++) {
+                 log("    " + instruments[i] + " : " + mrp.getMRP(instruments[i].getInstrumentId()));
+                 }
 
-                logArray("Positions:", account.getPositions());
-                log();
-                logArray("CashBalances:", account.getCashBalances());
-                log();
-                logArray("Tickets:", account.getTickets());
-                log();
+                 logArray("Positions:", account.getPositions());
+                 log();
+                 logArray("CashBalances:", account.getCashBalances());
+                 log();
+                 logArray("Tickets:", account.getTickets());
+                 log();
 
-                // listing incomplete orders
+                 // listing incomplete orders
 
-                callListIncompleteOrders(trading, account);
+                 callListIncompleteOrders(trading, account);
 
-                // listing orders history
+                 // listing orders history
 
-                callListOrdersHistory(userSupport, account);
+                 callListOrdersHistory(userSupport, account);
 
-                // listing transfers history
+                 // listing transfers history
 
-                callListTransfersHistory(userSupport, account);
+                 callListTransfersHistory(userSupport, account);
 
-                // perform a series of order-related operations
+                 // perform a series of order-related operations
 
-               // callOrderOperations(trading, userSupport, account);
-*/
+                 // callOrderOperations(trading, userSupport, account);
+                 */
             }
-            } catch (gft.api.VersionException ve) {
-                ve.printStackTrace();
-                return null;
-            } catch (gft.api.LoginException le) {
-                le.printStackTrace();
-                return null;
-            }
-            
-            return pricing;
+        } catch (gft.api.VersionException ve) {
+            ve.printStackTrace();
+            return null;
+        } catch (gft.api.LoginException le) {
+            le.printStackTrace();
+            return null;
+        }
+
+        return pricing;
     }
+
     private Session getSession(String connectionString) {
         try {
             return SessionFactory.getSession(connectionString);
@@ -170,35 +164,42 @@ public class ApiUsage {
         }
         return null;
     }
-    
-    private void go(String connectionString, String login, String password) {
+
+    private void go(IPricingService.LoginProperty l) {
+        String connectionString = l.getUrl();
+        String login = l.getLogin();
+        String password = l.getPwd();
 
         Session session = null;
 
         try {
-          session = getSession(connectionString);
-          
+            session = getSession(connectionString);
+
 
 
             // creating session object
 
-           final Pricing pricing = initSession(session, connectionString, login, password);;
- 
+            final Pricing pricing = initSession(session, connectionString, login, password);;
+
 
 // Main Program Loop
             // listing candles history
             int wfu;
             try {
-				while((wfu=sUpdate.waitForConnection())>0)
-				{
-					System.out.println("Getting data "+ sUpdate.getInstrumentId());
-					Thread.sleep(1000);
-					callListCandleHistory(pricing,wfu, sUpdate.getInstrumentId(), sUpdate.getNumOfDays());
-				}
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+                Instrument[] availInstruments = callListAvailableInstruments(session.getUserSupport());
+
+                while ((wfu = sUpdate.waitForConnection()) > 0) {
+                    System.out.println("Getting data " + sUpdate.getInstrumentId());
+                    if (!isInstrumentAvailable(sUpdate.getInstrumentId())) {
+                        continue;
+                    }
+                    Thread.sleep(1000);
+                    callListCandleHistory(pricing, wfu, sUpdate.getInstrumentId(), sUpdate.getNumOfDays());
+                }
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
 
             // listing quotes snapshot
 
@@ -218,21 +219,20 @@ public class ApiUsage {
 
             // listing brief information about user accounts
 
-           // callListAccounts(userSupport);
+            // callListAccounts(userSupport);
 
             // change the list of selected instruments
 
-          //  callChangeSelectedInstruments(userSupport);
+            //  callChangeSelectedInstruments(userSupport);
 
             // listing detailed information about user accounts
 
-     
 
-   
-        }
-        catch(RemoteException e){
+
+
+        } catch (RemoteException e) {
             log("Critical Error Exception");
-        }finally {
+        } finally {
             if (session != null) {
                 try {
                     session.close(); // finishing session
@@ -256,50 +256,49 @@ public class ApiUsage {
             Object key = e.nextElement();
             Object value = qhistory.get(key);
             gft.api.Quote[] quotes = (gft.api.Quote[]) value;
-            for (int i = 0; i < quotes.length; i++)
+            for (int i = 0; i < quotes.length; i++) {
                 log("    instrument=" + key + ", quote=" + quotes[i]);
+            }
         }
     }
 
     // private Candle[] callListCandleHistory(Pricing pricing, int wfc) throws RemoteException{
     // 	return	 callListCandleHistory(pricing, wfc, 3, 5);
-     
     // }
-
-
     private Candle[] callListCandleHistory(Pricing pricing, int wfc, int insId, int numDays) throws RemoteException {
         int max_count = wfc;
-	System.out.println("Count: "+wfc+" NumOfDays:"+ numDays);
-        long ct=  System.currentTimeMillis();
+        System.out.println("Count: " + wfc + " NumOfDays:" + numDays);
+        long ct = System.currentTimeMillis();
         Candle.Type t = Candle.Type.T_15_MIN;
-        if (sUpdate.getTimePeriod()<10) t=Candle.Type.T_5_MIN;
-        if (sUpdate.getTimePeriod()>60) t=Candle.Type.T_DAILY;
-        else
-           if (sUpdate.getTimePeriod()>15)
-               t=Candle.Type.T_30_MIN;
+        if (sUpdate.getTimePeriod() < 10) {
+            t = Candle.Type.T_5_MIN;
+        }
+        if (sUpdate.getTimePeriod() > 60) {
+            t = Candle.Type.T_DAILY;
+        } else if (sUpdate.getTimePeriod() > 15) {
+            t = Candle.Type.T_30_MIN;
+        }
         Candle[] candles = pricing.listCandleHistory(
-              	insId,
+                insId,
                 t, // candle type
-                ct- numDays*_DAY, // from time (millis)
+                ct - numDays * _DAY, // from time (millis)
                 ct, // to time (millis)
-                max_count
-        );
+                max_count);
         //logArray("pricing.listCandleHistory:", candles);
         Candle[] candles2;
-           candles2 = pricing.listCandleHistory(
-        		50221,
+        candles2 = pricing.listCandleHistory(
+                50221,
                 t, // candle type
-                ct- numDays*_DAY, // from time (millis)
+                ct - numDays * _DAY, // from time (millis)
                 ct, // to time (millis)
-                max_count
-        );
-	this.writeToFileArray("pricing.listCandleHistory:", candles,candles, "latestUpdate.csv");
+                max_count);
+        this.writeToFileArray("pricing.listCandleHistory:", candles, candles, "latestUpdate.csv");
 
-        this.writeToFileArray("pricing.listCandleHistory:", candles,candles2, "AUDUSDref.csv");
+        this.writeToFileArray("pricing.listCandleHistory:", candles, candles2, "AUDUSDref.csv");
 
-       this.writeToFileArray("pricing.listCandleHistory:", candles2,candles2, "US30forAUDUSD.csv");
+        this.writeToFileArray("pricing.listCandleHistory:", candles2, candles2, "US30forAUDUSD.csv");
 
-        
+
         return candles;
     }
 
@@ -351,18 +350,18 @@ public class ApiUsage {
         };
 
         int[] instrumentsToBeAdded = new int[]{
-          //  InstrumentIds.USD_JPY,
-        //    InstrumentIds.EUR_USD,
+            //  InstrumentIds.USD_JPY,
+            //    InstrumentIds.EUR_USD,
             InstrumentIds.GBP_AUD
         };
 
         int[] subscribedInstrumentIds = userSupport.changeSelectedInstruments(
                 instrumentsToBeDeleted,
-                instrumentsToBeAdded
-        );
+                instrumentsToBeAdded);
         log("userSupport.changeSelectedInstruments:");
-        for (int i = 0; i < subscribedInstrumentIds.length; i++)
+        for (int i = 0; i < subscribedInstrumentIds.length; i++) {
             log(" " + subscribedInstrumentIds[i]);
+        }
         log();
     }
 
@@ -459,7 +458,7 @@ public class ApiUsage {
                     long cfd_limit_id = trading.issueLimitOrder(account.getAccountId(), instrumentId,
                             Order.Operation.SELL,
                             contractSize.getContractSize(instrumentId) * 2,
-                            quote.getBid() + 5*instruments[i].getScale()); // bid + 5 pips
+                            quote.getBid() + 5 * instruments[i].getScale()); // bid + 5 pips
                     log("trading.issueLimitOrder; cfd_limit_id = " + cfd_limit_id);
                 }
             }
@@ -482,19 +481,19 @@ public class ApiUsage {
             log("    " + a[i]);
         }
     }
+
     private void writeToFileArray(String title, Candle[] a, Candle[] ref, String fname) {
-    	try{
+        try {
 
-    	sUpdate.writeArrayToOutput(title, a, ref, fname);
+            sUpdate.writeArrayToOutput(title, a, ref, fname);
 
-    	}
-    	catch(Exception e){
-      		log("General Exception");
-    		log(e.getStackTrace().toString());
-    		e.printStackTrace();
-    	}
+        } catch (Exception e) {
+            log("General Exception");
+            log(e.getStackTrace().toString());
+            e.printStackTrace();
+        }
     }
-    
+
     private void logHashtable(String title, Hashtable ht) {
         log(title);
         for (Enumeration e = ht.keys(); e.hasMoreElements();) {
@@ -525,7 +524,12 @@ public class ApiUsage {
             System.out.println("\nError: " + PASSWORD_PROP_NAME + " property not set");
             return;
         }
+        GFTUKLogin g = new GFTUKLogin();
 
-        (new ApiUsage()).go(url, login, password);
+        (new ApiUsage()).go(g.getLoginProperty());
+    }
+
+    private boolean isInstrumentAvailable(int instrumentId) {
+        return true;
     }
 }

@@ -1,0 +1,120 @@
+package technoor.datarequest;
+/* definition enums */
+enum OrderOperation
+{
+    BUY=0;
+    SELL=1;
+    CLOSEATMARKET=2;
+
+
+}
+
+enum InstrumentIds {
+
+    USD_JPY = 1;
+    USD_CHF = 2;
+    GBP_USD = 3;
+    EUR_USD = 4;
+    GBP_JPY = 6;
+    AUD_USD = 7;
+    USD_CAD = 8;
+    USD_NOK = 12;
+    NZD_USD = 13;
+    USD_SEK = 14;
+    USD_ZAR = 16;
+    AUD_CAD = 17;
+    AUD_JPY = 20;
+    CHF_JPY = 23;
+    EUR_AUD = 30;
+    EUR_CAD = 31;
+    EUR_CHF = 32;
+    EUR_GBP = 34;
+    EUR_JPY = 35;
+    EUR_NZD = 36;
+    ZAR_JPY = 38;
+    EUR_CZK = 39;
+    GBP_CHF = 43;
+    USD_THB = 44;
+    NZD_JPY = 45;
+    EUR_PLN = 46;
+    EUR_HUF = 47;
+    AUD_CHF = 48;
+    AUD_NZD = 49;
+    AUD_SGD = 50;
+    CAD_CHF = 51;
+    CAD_JPY = 52;
+    CHF_NOK = 53;
+    CHF_SEC = 54;
+    GBP_CAD = 55;
+    GBP_DKK = 56;
+    GBP_HUF = 57;
+    GBP_NOK = 58;
+    GBP_NZD = 59;
+    GBP_PLN = 60;
+    GBP_SEC = 61;
+    GBP_SGD = 62;
+    GBP_AUD = 63;
+    NOK_SEC = 64;
+    NZD_CAD = 65;
+    NZD_CHF = 66;
+    NZD_DKK = 67;
+    NZD_SEC = 68;
+    NZD_SGD = 69;
+    USD_CZK = 70;
+    USD_DKK = 71;
+    USD_HUF = 72;
+    USD_MXN = 73;
+    USD_PLN = 74;
+    USD_SGD = 75;
+    EUR_SEK = 76;
+    USD_KRW = 77;
+    EUR_KRW = 78;
+    JPY_KRW = 79;
+    SGD_JPY = 80;
+    THB_JPY = 81;
+    EUR_ZAR = 89;
+    EUR_NOK = 90;
+    USD_HKD = 91;
+    EUR_HKD = 95;
+    HKD_JPY = 96;
+    AUD_HKD = 100;
+
+}
+/* End of def Enums */
+message RequestTrade
+{
+  optional OrderOperation op =1 [default = BUY];
+  required int64 amt=2;
+  optional int32 ccy=3;
+
+}
+
+message RequestUpdate 
+{
+  optional string instName = 1;
+  required int32 id = 2;
+  optional int32 numOfPeriods = 3 [default = 100];
+  optional int32 timeMin = 4 [default =10];
+  optional int32 numOfDays = 5 [default =10];
+  optional RequestTrade reqTrade=6;
+}
+
+
+
+message CandleProto
+{
+  required double open = 1;
+  required double close = 2 ;
+  optional double high = 3;
+  optional double low = 4;
+  optional float extremelow = 5;
+  optional float extremehigh = 6;
+  required uint64 timestamp = 7;
+
+}
+
+message Response
+{
+// todo add more option
+  repeated CandleProto dataCandle = 1;
+}

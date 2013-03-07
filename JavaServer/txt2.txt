@@ -1,0 +1,170 @@
+[main] DEBUG http.SecureHttpRequester - doInitialize()
+[main] DEBUG http.SecureHttpRequester - Initializing secure session: hello stage
+[main]  INFO http.SecureHttpRequester - Session has been initialized; server response: 200 - OK
+[main] DEBUG http.HttpRequester - HELLO
+[main] DEBUG http.HttpRequester - we have 76 bytes here
+[main] DEBUG http.HttpRequester - JSESSIONID=B3E8DE147C7A0BB81C91E0E178BE908A
+[main] DEBUG http.SecureHttpRequester - Initializing secure session: obtaining server's public key
+[main] DEBUG http.SecureHttpRequester - Public keys exchange stage done.
+[main] DEBUG http.SecureHttpRequester - Initializing secure session: sending encrypted secret key to the server
+[main] DEBUG http.SecureHttpRequester - Secret key exchange stage done.
+[main]  INFO http.SecureHttpRequester - Secure session initialized: 200 - OK
+[main] DEBUG http.HttpRequester - we have 40 bytes here
+[main] DEBUG http.HttpRequester - we have 507224 bytes here
+logged in; login context = LoginContext [online_id = 194060115, user_id = 1650249, user_type = C]
+
+[main] DEBUG http.HttpRequester - we have 3648 bytes here
+pricing.listLastTicks():
+    key=63, value=[Lgft.api.Quote;@4f0ea988, class=class [Lgft.api.Quote;
+    key=7, value=[Lgft.api.Quote;@4b9c4844, class=class [Lgft.api.Quote;
+
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50099, ask=1.50218, timestamp=1343422695488]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50101, ask=1.50218, timestamp=1343422698549]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50108, ask=1.50218, timestamp=1343422699061]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50108, ask=1.50218, timestamp=1343422699573]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50106, ask=1.50218, timestamp=1343422700114]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50107, ask=1.50218, timestamp=1343422702236]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50107, ask=1.50218, timestamp=1343422703869]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50108, ask=1.50213, timestamp=1343422704684]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50086, ask=1.5021, timestamp=1343422705805]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50089, ask=1.50221, timestamp=1343422709066]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50089, ask=1.50237, timestamp=1343422710288]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50086, ask=1.50236, timestamp=1343422711409]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50078, ask=1.50228, timestamp=1343422712224]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5007, ask=1.50206, timestamp=1343422712735]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50052, ask=1.50202, timestamp=1343422713447]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50071, ask=1.50203, timestamp=1343422714363]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50071, ask=1.50211, timestamp=1343422717422]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5006, ask=1.5021, timestamp=1343422718854]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50067, ask=1.50211, timestamp=1343422725591]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5007, ask=1.50211, timestamp=1343422726201]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50067, ask=1.50211, timestamp=1343422729873]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50067, ask=1.50207, timestamp=1343422734462]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50057, ask=1.50207, timestamp=1343422736506]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50063, ask=1.50207, timestamp=1343422738136]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50064, ask=1.50203, timestamp=1343422740047]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50088, ask=1.50199, timestamp=1343422741796]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50092, ask=1.50199, timestamp=1343422756391]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50092, ask=1.50199, timestamp=1343422757001]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50148, ask=1.50199, timestamp=1343422758630]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50098, ask=1.50199, timestamp=1343422759242]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50108, ask=1.50199, timestamp=1343422760662]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50115, ask=1.50199, timestamp=1343422761780]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50102, ask=1.50199, timestamp=1343422763407]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50098, ask=1.50199, timestamp=1343422767284]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50101, ask=1.50199, timestamp=1343422772700]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50111, ask=1.50199, timestamp=1343422773314]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50151, ask=1.50199, timestamp=1343422774332]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50148, ask=1.50199, timestamp=1343422776368]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50138, ask=1.50199, timestamp=1343422781058]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5012, ask=1.50199, timestamp=1343422783097]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5012, ask=1.50199, timestamp=1343422783604]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50104, ask=1.50199, timestamp=1343422785336]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.5012, ask=1.50199, timestamp=1343422787784]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50107, ask=1.50199, timestamp=1343422788812]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50148, ask=1.50199, timestamp=1343422789630]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50114, ask=1.50199, timestamp=1343422793304]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.501, ask=1.50199, timestamp=1343422794017]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50076, ask=1.50199, timestamp=1343422795036]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50062, ask=1.50199, timestamp=1343422796258]
+    instrument=63, quote=Quote [symbol=GBP/AUD, instrument_id=63, bid=1.50051, ask=1.50199, timestamp=1343422796871]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04824, ask=1.04864, timestamp=1343422653916]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04835, ask=1.04867, timestamp=1343422655856]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04824, ask=1.04864, timestamp=1343422657899]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04825, ask=1.04865, timestamp=1343422664926]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04817, ask=1.04857, timestamp=1343422667374]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422667882]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04817, ask=1.04857, timestamp=1343422682369]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422684410]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422684918]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04812, ask=1.04852, timestamp=1343422698899]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04813, ask=1.04853, timestamp=1343422699920]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422703080]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04821, ask=1.04861, timestamp=1343422705831]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04817, ask=1.04857, timestamp=1343422709093]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04799, ask=1.04839, timestamp=1343422712054]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04811, ask=1.04851, timestamp=1343422712563]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04813, ask=1.04853, timestamp=1343422714294]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04814, ask=1.04854, timestamp=1343422716227]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.0481, ask=1.0485, timestamp=1343422717549]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04811, ask=1.04851, timestamp=1343422718363]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422719591]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04814, ask=1.04854, timestamp=1343422723368]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04811, ask=1.04851, timestamp=1343422724287]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422725615]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04815, ask=1.04855, timestamp=1343422730605]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04817, ask=1.04857, timestamp=1343422734785]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04813, ask=1.04853, timestamp=1343422736324]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04816, ask=1.04856, timestamp=1343422740050]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04812, ask=1.04852, timestamp=1343422741828]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.0481, ask=1.0485, timestamp=1343422751928]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04812, ask=1.04852, timestamp=1343422754481]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04807, ask=1.04847, timestamp=1343422757131]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04806, ask=1.04846, timestamp=1343422758252]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04814, ask=1.04854, timestamp=1343422759068]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04819, ask=1.04859, timestamp=1343422761513]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.0482, ask=1.0486, timestamp=1343422762533]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04823, ask=1.04863, timestamp=1343422763347]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04802, ask=1.04842, timestamp=1343422774354]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04805, ask=1.04845, timestamp=1343422774863]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04805, ask=1.04845, timestamp=1343422775372]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04804, ask=1.04844, timestamp=1343422778229]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04801, ask=1.04841, timestamp=1343422781283]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04798, ask=1.04838, timestamp=1343422782816]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04807, ask=1.04847, timestamp=1343422787611]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04801, ask=1.04841, timestamp=1343422793320]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04802, ask=1.04842, timestamp=1343422794031]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04806, ask=1.04846, timestamp=1343422795052]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04804, ask=1.04844, timestamp=1343422796272]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04807, ask=1.04847, timestamp=1343422797290]
+    instrument=7, quote=Quote [symbol=AUD/USD, instrument_id=7, bid=1.04816, ask=1.04856, timestamp=1343422799032]
+[Thread-0] DEBUG http.HttpRequester - we have 648 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+Client Accepted2
+Number read10
+3
+Getting data 3
+Count: 10 NumOfDays:5
+[main] DEBUG http.HttpRequester - we have 576 bytes here
+[main] DEBUG http.HttpRequester - we have 576 bytes here
+writing to file
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343416800000, open = 1.5728, close = 1.57221, high = 1.57281, low = 1.57211];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343417400000, open = 1.57221, close = 1.57263, high = 1.57311, low = 1.57213];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343418000000, open = 1.57263, close = 1.57305, high = 1.5738, low = 1.57263];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343418600000, open = 1.57305, close = 1.57223, high = 1.57321, low = 1.57212];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343419200000, open = 1.5723, close = 1.57311, high = 1.57323, low = 1.57226];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343419800000, open = 1.57311, close = 1.57246, high = 1.57311, low = 1.5722];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343420400000, open = 1.57246, close = 1.57249, high = 1.5727, low = 1.5723];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343421000000, open = 1.57242, close = 1.57286, high = 1.57288, low = 1.57241];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343421600000, open = 1.57282, close = 1.57452, high = 1.57459, low = 1.57282];,
+Candle [instrument_id = 3, type = 10 MIN, start_timestamp = 1343422200000, open = 1.57452, close = 1.57439, high = 1.57603, low = 1.57404];,
+writing to file
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343414400000, open = 13082.0, close = 13080.0, high = 13091.0, low = 13075.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343415000000, open = 13079.0, close = 13084.0, high = 13093.0, low = 13078.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343415600000, open = 13084.0, close = 13102.0, high = 13102.0, low = 13079.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343416200000, open = 13101.0, close = 13097.0, high = 13102.0, low = 13092.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343416800000, open = 13098.0, close = 13104.0, high = 13108.0, low = 13088.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343417400000, open = 13105.0, close = 13096.0, high = 13111.0, low = 13090.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343418000000, open = 13096.0, close = 13094.0, high = 13104.0, low = 13090.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343418600000, open = 13096.0, close = 13078.0, high = 13096.0, low = 13065.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343419200000, open = 13076.0, close = 13082.0, high = 13088.0, low = 13076.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343419800000, open = 13082.0, close = 13087.0, high = 13088.0, low = 13082.0];,
+writing to file
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343414400000, open = 13082.0, close = 13080.0, high = 13091.0, low = 13075.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343415000000, open = 13079.0, close = 13084.0, high = 13093.0, low = 13078.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343415600000, open = 13084.0, close = 13102.0, high = 13102.0, low = 13079.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343416200000, open = 13101.0, close = 13097.0, high = 13102.0, low = 13092.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343416800000, open = 13098.0, close = 13104.0, high = 13108.0, low = 13088.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343417400000, open = 13105.0, close = 13096.0, high = 13111.0, low = 13090.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343418000000, open = 13096.0, close = 13094.0, high = 13104.0, low = 13090.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343418600000, open = 13096.0, close = 13078.0, high = 13096.0, low = 13065.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343419200000, open = 13076.0, close = 13082.0, high = 13088.0, low = 13076.0];,
+Candle [instrument_id = 50221, type = 10 MIN, start_timestamp = 1343419800000, open = 13082.0, close = 13087.0, high = 13088.0, low = 13082.0];,
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+[Thread-0] DEBUG http.HttpRequester - we have 144 bytes here
+Terminate batch job (Y/N)? 
+Done

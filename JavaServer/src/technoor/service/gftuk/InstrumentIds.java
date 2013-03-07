@@ -1,12 +1,12 @@
 /* 
  * $Id: InstrumentIds.java 138 2006-10-04 09:53:01Z podtelkin $  
  */
-package gft.api.example;
+package technoor.service.gftuk;
 
 /** 
  * @author Boris Malkin
  */ 
-interface InstrumentIds {
+public interface InstrumentIds {
 
     final int USD_JPY = 1;
     final int USD_CHF = 2;

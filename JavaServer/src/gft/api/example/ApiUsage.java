@@ -3,9 +3,12 @@
  */
 package gft.api.example;
 
+import technoor.service.gftuk.InstrumentIds;
 import gft.api.*;
 import gft.api.profile.ContractSizeProfile;
 import gft.api.profile.MRPProfile;
+import technoor.service.IServiceUpdater;
+import gft.api.example.ServiceUpdate;
 import org.apache.log4j.PropertyConfigurator;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
@@ -26,10 +29,10 @@ public class ApiUsage {
 
     private final static long _40_MIN = 40 * 60 * 1000;
     private final static long _DAY = 24 * 60 * 60 * 1000;
-    private IServiceUpdates sUpdate;
+    private IServiceUpdater sUpdate;
     ApiUsage(){
     	try{
-    		sUpdate = new ServiceUpdater();
+    		sUpdate = new gft.api.example.ServiceUpdate();
     	}
     	catch(Exception e)
     	{
@@ -482,7 +485,7 @@ public class ApiUsage {
     private void writeToFileArray(String title, Candle[] a, Candle[] ref, String fname) {
     	try{
 
-    	sUpdate.writeToFileArray(title, a, ref, fname);
+    	sUpdate.writeArrayToOutput(title, a, ref, fname);
 
     	}
     	catch(Exception e){

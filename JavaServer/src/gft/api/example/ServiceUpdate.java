@@ -15,6 +15,7 @@ import java.net.Socket;
 import technoor.datarequest.ProtoTradeApi;
 import technoor.datarequest.ProtoTradeApi.CandleProto;
 import technoor.datarequest.ProtoTradeApi.Response;
+import technoor.service.IRiskStatistic;
 
 /**
  *
@@ -89,7 +90,7 @@ public class ServiceUpdate implements technoor.service.IServiceUpdater {
         return numOfPeriods;
     }
 
-    public Response createResponse(Candle[] a) {
+    public Response createProtoResponse(Candle[] a) {
         Response response = Response.getDefaultInstance();
         if(a==null) return response;
         Response.Builder responseBuilder;
@@ -106,6 +107,21 @@ public class ServiceUpdate implements technoor.service.IServiceUpdater {
             candleBuilder.setOpen(a[i].getOpen());
             candleBuilder.setClose(a[i].getClose());
             responseBuilder.addDataCandle(candleBuilder.build());
+        }
+        return responseBuilder.build();
+    }
+    
+    
+     public Response createResponseSimulated(CandleProto[] a) {
+        Response response = Response.getDefaultInstance();
+        if(a==null) return response;
+        Response.Builder responseBuilder;
+        responseBuilder = Response.newBuilder();
+           int i;
+        for (i = 0; i < a.length; i++) {
+            // assume it is unix timestamp so converting to excel readable number in terms of days
+            // adding the uni timestart of Jan 1 1970
+            responseBuilder.addDataCandle(a[i]);
         }
         return responseBuilder.build();
     }
@@ -129,8 +145,15 @@ public class ServiceUpdate implements technoor.service.IServiceUpdater {
                 }
             }
             if (s != null && !s.isClosed() && s.isConnected()) {
-                Response response = createResponse(a);
+                Response response = createProtoResponse(a);
+                IRiskStatistic vars = new VarCalculatorFromCandle();
+                
+                //Response responseSim
+                //        = createResponseSimulated(
+                vars.calculateStat(response.getDataCandleList().toArray(new CandleProto[response.getDataCandleCount()]));
+//);
                 response.writeDelimitedTo(s.getOutputStream());
+                //responseSim.writeDelimitedTo(s.getOutputStream());
                 //	PrintWriter wr = new PrintWriter(new OutputStreamWriter(
                 //			s.getOutputStream()), true);
                 //	wr.println(str.toString());

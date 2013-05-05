@@ -1,0 +1,4 @@
+#Build Number for ANT. Do not edit!
+#Fri Jul 13 12:27:29 EDT 2012
+build.number=244
+Implementation-Version=J6.00.1207.1312

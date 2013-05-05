@@ -32,7 +32,8 @@ set CP=%CP%;.\dist\JavaProject1.jar
 
 rem if "%JAVA_HOME%"=="" goto nojava
 
-"%JAVA_HOME%\bin\java" -classpath %CP%; -Dgft.url=%URL% -Dgft.login=%USER_ID% -Dgft.password=%PASSWORD% gft.api.example.ApiUsage
+rem "%JAVA_HOME%\bin\java" -classpath %CP%; -Dgft.url=%URL% -Dgft.login=%USER_ID% -Dgft.password=%PASSWORD% gft.api.example.ApiUsage
+"%JAVA_HOME%\bin\java" -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y -classpath %CP%;.\src -Dgft.url=%URL% -Dgft.login=%USER_ID% -Dgft.password=%PASSWORD% gft.api.example.ApiUsage
 
 goto exit
 

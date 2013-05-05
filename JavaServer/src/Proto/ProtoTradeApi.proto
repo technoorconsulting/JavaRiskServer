@@ -113,8 +113,14 @@ message CandleProto
 
 }
 
+message RiskMetrics{
+
+required double var = 1;
+
+}
 message Response
 {
 // todo add more option
   repeated CandleProto dataCandle = 1;
+  optional RiskMetrics risk = 2;
 }

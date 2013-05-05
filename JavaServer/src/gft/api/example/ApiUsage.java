@@ -30,11 +30,11 @@ public class ApiUsage {
     public final static String PASSWORD_PROP_NAME = "gft.password";
     private final static long _40_MIN = 40 * 60 * 1000;
     private final static long _DAY = 24 * 60 * 60 * 1000;
-    private IServiceUpdater sUpdate;
+    private IServiceUpdater sHandleRequests;
 
     ApiUsage() {
         try {
-            sUpdate = new gft.api.example.ServiceUpdate();
+            sHandleRequests = new gft.api.example.ServiceUpdate();
         } catch (Exception e) {
             log("exception");
             e.printStackTrace();
@@ -188,13 +188,14 @@ public class ApiUsage {
             try {
                 Instrument[] availInstruments = callListAvailableInstruments(session.getUserSupport());
 
-                while ((wfu = sUpdate.waitForConnection()) > 0) {
-                    System.out.println("Getting data " + sUpdate.getInstrumentId());
-                    if (!isInstrumentAvailable(sUpdate.getInstrumentId())) {
+                while ((wfu = sHandleRequests.waitForConnection()) > 0) {
+                    System.out.println("Getting data " + sHandleRequests.getInstrumentId());
+                    if (!isInstrumentAvailable(sHandleRequests.getInstrumentId())) {
                         continue;
                     }
                     Thread.sleep(1000);
-                    callListCandleHistory(pricing, wfu, sUpdate.getInstrumentId(), sUpdate.getNumOfDays());
+                    callListCandleHistory(pricing, wfu, sHandleRequests.getInstrumentId(), sHandleRequests.getNumOfDays());
+                    
                 }
             } catch (Exception e) {
                 // TODO Auto-generated catch block
@@ -270,12 +271,12 @@ public class ApiUsage {
         System.out.println("Count: " + wfc + " NumOfDays:" + numDays);
         long ct = System.currentTimeMillis();
         Candle.Type t = Candle.Type.T_15_MIN;
-        if (sUpdate.getTimePeriod() < 10) {
+        if (sHandleRequests.getTimePeriod() < 10) {
             t = Candle.Type.T_5_MIN;
         }
-        if (sUpdate.getTimePeriod() > 60) {
+        if (sHandleRequests.getTimePeriod() > 60) {
             t = Candle.Type.T_DAILY;
-        } else if (sUpdate.getTimePeriod() > 15) {
+        } else if (sHandleRequests.getTimePeriod() > 15) {
             t = Candle.Type.T_30_MIN;
         }
         Candle[] candles = pricing.listCandleHistory(
@@ -293,10 +294,12 @@ public class ApiUsage {
                 ct, // to time (millis)
                 max_count);
         this.writeToFileArray("pricing.listCandleHistory:", candles, candles, "latestUpdate.csv");
+        
+        
 
-        this.writeToFileArray("pricing.listCandleHistory:", candles, candles2, "AUDUSDref.csv");
+        //this.writeToFileArray("pricing.listCandleHistory:", candles, candles2, "AUDUSDref.csv");
 
-        this.writeToFileArray("pricing.listCandleHistory:", candles2, candles2, "US30forAUDUSD.csv");
+        //this.writeToFileArray("pricing.listCandleHistory:", candles2, candles2, "US30.csv");
 
 
         return candles;
@@ -485,7 +488,7 @@ public class ApiUsage {
     private void writeToFileArray(String title, Candle[] a, Candle[] ref, String fname) {
         try {
 
-            sUpdate.writeArrayToOutput(title, a, ref, fname);
+            sHandleRequests.writeArrayToOutput(title, a, ref, fname);
 
         } catch (Exception e) {
             log("General Exception");
@@ -506,24 +509,6 @@ public class ApiUsage {
     public static void main(String[] args) {
 
         PropertyConfigurator.configure("log4j.properties");
-
-        String url = System.getProperty(URL_PROP_NAME);
-        if (url == null) {
-            System.out.println("\nError: " + URL_PROP_NAME + " property not set");
-            return;
-        }
-
-        String login = System.getProperty(LOGIN_PROP_NAME);
-        if (login == null) {
-            System.out.println("\nError: " + LOGIN_PROP_NAME + " property not set");
-            return;
-        }
-
-        String password = System.getProperty(PASSWORD_PROP_NAME);
-        if (password == null) {
-            System.out.println("\nError: " + PASSWORD_PROP_NAME + " property not set");
-            return;
-        }
         GFTUKLogin g = new GFTUKLogin();
 
         (new ApiUsage()).go(g.getLoginProperty());
